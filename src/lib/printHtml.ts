@@ -80,15 +80,36 @@ export function rewriteImageSources(html: string, resolve: ResolveImage): string
 }
 
 /**
+ * Whether a link points at a file inside a GitHub repository, where the `.md`
+ * source is what a reader expects to land on.
+ *
+ * The host is compared after parsing rather than searched for in the string: as
+ * a substring, `github.com` matches `github.com.example.org` and
+ * `example.org/?to=github.com` just as happily.
+ */
+function isRepositoryBlobLink(href: string): boolean {
+  let url: URL;
+  try {
+    url = new URL(href);
+  } catch {
+    // A relative link, which names a neighbour rather than a repository.
+    return false;
+  }
+
+  const host = url.hostname.toLowerCase();
+  return (
+    (host === 'github.com' || host.endsWith('.github.com')) && url.pathname.includes('/blob/')
+  );
+}
+
+/**
  * Points links at the exported neighbours rather than at the sources, so a set
  * of documents exported together still links up. Links into a repository are
- * left alone: there the `.md` file is what a reader expects to land on.
+ * left alone.
  */
 export function rewriteMarkdownLinks(html: string): string {
   return html.replace(MARKDOWN_HREF, (match, before: string, href: string, after: string) =>
-    href.includes('github.com') && href.includes('/blob/')
-      ? match
-      : `${before}${href.replace(/\.md$/i, '.html')}${after}`
+    isRepositoryBlobLink(href) ? match : `${before}${href.replace(/\.md$/i, '.html')}${after}`
   );
 }
 

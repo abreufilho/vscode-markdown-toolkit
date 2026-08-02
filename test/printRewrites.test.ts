@@ -45,3 +45,14 @@ test('leaves a link into a repository pointing at the source', () => {
   const html = '<a href="https://github.com/o/r/blob/main/README.md">README</a>';
   assert.equal(rewriteMarkdownLinks(html), html);
 });
+
+test('compares the host, so a lookalike is rewritten like any other link', () => {
+  assert.equal(
+    rewriteMarkdownLinks('<a href="https://github.com.example.org/blob/x/a.md">a</a>'),
+    '<a href="https://github.com.example.org/blob/x/a.html">a</a>'
+  );
+  assert.equal(
+    rewriteMarkdownLinks('<a href="https://example.org/x/blob/github.com/a.md">a</a>'),
+    '<a href="https://example.org/x/blob/github.com/a.html">a</a>'
+  );
+});

@@ -7,11 +7,28 @@ const STRIP = /[^\p{L}\p{N}_\s-]/gu;
 const HTML_TAG = /<[^>]*>/g;
 const WHITESPACE = /\s+/g;
 
+/**
+ * Drops inline HTML, tag and content alike, so `<em>Title</em>` slugs as
+ * `title` rather than `emtitleem`.
+ *
+ * One pass is not enough: removing the inner tag of `<<a>script>` leaves
+ * `<script>` behind. Repeating until the text stops changing reaches a string
+ * that holds no tag at all.
+ */
+function stripHtmlTags(text: string): string {
+  let current = text;
+  let previous: string;
+
+  do {
+    previous = current;
+    current = current.replace(HTML_TAG, '');
+  } while (current !== previous);
+
+  return current;
+}
+
 function base(heading: string): string {
-  return heading
-    .trim()
-    .toLowerCase()
-    .replace(HTML_TAG, '')
+  return stripHtmlTags(heading.trim().toLowerCase())
     .replace(STRIP, '')
     .replace(WHITESPACE, '-');
 }
