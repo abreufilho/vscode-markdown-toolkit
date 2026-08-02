@@ -1,8 +1,7 @@
-import type MarkdownIt from 'markdown-it';
 import type * as vscode from 'vscode';
 import * as completion from './completion';
 import * as formatting from './formatting';
-import { extendMarkdownIt } from './lib/markdown';
+import { extendMarkdownIt, type MarkdownItInstance } from './lib/markdown';
 import * as listEditing from './listEditing';
 import * as print from './print';
 import * as syntaxDecorations from './syntaxDecorations';
@@ -24,4 +23,4 @@ export function deactivate(): void {}
 /** Called by the built-in preview to extend its renderer. */
 export { extendMarkdownIt };
 
-export type { MarkdownIt };
+export type { MarkdownItInstance };

@@ -3,7 +3,7 @@ import { writeFile } from 'node:fs/promises';
 import * as path from 'node:path';
 import MarkdownIt from 'markdown-it';
 import * as vscode from 'vscode';
-import { extendMarkdownIt, highlight } from './lib/markdown';
+import { extendMarkdownIt, highlight, type MarkdownItInstance } from './lib/markdown';
 import {
   buildHtml,
   extractTitle,
@@ -37,7 +37,7 @@ function resolveImage(
     : `file:///${absolute.replace(/\\/g, '/')}`;
 }
 
-function createRenderer(): MarkdownIt {
+function createRenderer(): MarkdownItInstance {
   return extendMarkdownIt(new MarkdownIt({ html: true, linkify: true, highlight }));
 }
 
