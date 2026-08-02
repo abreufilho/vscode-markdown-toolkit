@@ -90,16 +90,18 @@ const codeLensProvider: vscode.CodeLensProvider = {
   provideCodeLenses(document) {
     const range = tocRange(document);
     if (!range) return [];
-    return [new vscode.CodeLens(range, { title: 'Update TOC', command: 'mdaio.tocUpdate' })];
+    return [
+      new vscode.CodeLens(range, { title: 'Update TOC', command: 'markdownToolkit.tocUpdate' }),
+    ];
   },
 };
 
 export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
-    vscode.commands.registerCommand('mdaio.tocCreate', createToc),
-    vscode.commands.registerCommand('mdaio.tocUpdate', updateToc),
-    vscode.commands.registerCommand('mdaio.secNumbersAdd', addSectionNumbers),
-    vscode.commands.registerCommand('mdaio.secNumbersRemove', removeSectionNumbers),
+    vscode.commands.registerCommand('markdownToolkit.tocCreate', createToc),
+    vscode.commands.registerCommand('markdownToolkit.tocUpdate', updateToc),
+    vscode.commands.registerCommand('markdownToolkit.secNumbersAdd', addSectionNumbers),
+    vscode.commands.registerCommand('markdownToolkit.secNumbersRemove', removeSectionNumbers),
     vscode.languages.registerCodeLensProvider({ language: 'markdown' }, codeLensProvider),
     // Read on each save rather than at activation, so turning the setting on
     // takes effect without reloading the window.

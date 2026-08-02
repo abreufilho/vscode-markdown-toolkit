@@ -179,16 +179,16 @@ async function pasteAsLink(): Promise<void> {
 
 export function activate(context: vscode.ExtensionContext): void {
   const commands: Record<string, () => Promise<void>> = {
-    'mdaio.toggleBold': () => toggleWrapping(setting('bold.indicator', '**')),
-    'mdaio.toggleItalic': () => toggleWrapping(setting('italic.indicator', '*')),
-    'mdaio.toggleStrikethrough': () => toggleWrapping('~~'),
-    'mdaio.toggleCodeSpan': () => toggleWrapping('`'),
-    'mdaio.toggleCodeBlock': toggleCodeBlock,
-    'mdaio.toggleMath': toggleMath,
-    'mdaio.headingUp': () => editLines((line) => changeHeadingLevel(line, 1)),
-    'mdaio.headingDown': () => editLines((line) => changeHeadingLevel(line, -1)),
-    'mdaio.toggleList': () => editLines(cycleListMarker),
-    'mdaio.paste': pasteAsLink,
+    'markdownToolkit.toggleBold': () => toggleWrapping(setting('bold.indicator', '**')),
+    'markdownToolkit.toggleItalic': () => toggleWrapping(setting('italic.indicator', '*')),
+    'markdownToolkit.toggleStrikethrough': () => toggleWrapping('~~'),
+    'markdownToolkit.toggleCodeSpan': () => toggleWrapping('`'),
+    'markdownToolkit.toggleCodeBlock': toggleCodeBlock,
+    'markdownToolkit.toggleMath': toggleMath,
+    'markdownToolkit.headingUp': () => editLines((line) => changeHeadingLevel(line, 1)),
+    'markdownToolkit.headingDown': () => editLines((line) => changeHeadingLevel(line, -1)),
+    'markdownToolkit.toggleList': () => editLines(cycleListMarker),
+    'markdownToolkit.paste': pasteAsLink,
   };
 
   for (const [name, run] of Object.entries(commands)) {

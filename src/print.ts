@@ -83,6 +83,6 @@ async function printToHtml(context: vscode.ExtensionContext): Promise<void> {
 
 export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
-    vscode.commands.registerCommand('mdaio.exportHtml', () => printToHtml(context))
+    vscode.commands.registerCommand('markdownToolkit.exportHtml', () => printToHtml(context))
   );
 }

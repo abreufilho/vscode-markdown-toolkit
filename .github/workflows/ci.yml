@@ -38,9 +38,9 @@ jobs:
 
       # Packaging is part of verification: a manifest or .vscodeignore mistake
       # only shows up when the VSIX is assembled.
-      - run: npx vsce package --out markdown-aio.vsix
+      - run: npx vsce package --out markdown-toolkit.vsix
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: vsix
-          path: markdown-aio.vsix
+          path: markdown-toolkit.vsix

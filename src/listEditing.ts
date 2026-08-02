@@ -112,10 +112,10 @@ async function checkTaskList(): Promise<void> {
 
 export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
-    vscode.commands.registerCommand('mdaio.onEnterKey', onEnterKey),
-    vscode.commands.registerCommand('mdaio.onTabKey', () => indentList(true)),
-    vscode.commands.registerCommand('mdaio.onShiftTabKey', () => indentList(false)),
-    vscode.commands.registerCommand('mdaio.onBackspaceKey', onBackspaceKey),
-    vscode.commands.registerCommand('mdaio.checkTaskList', checkTaskList)
+    vscode.commands.registerCommand('markdownToolkit.onEnterKey', onEnterKey),
+    vscode.commands.registerCommand('markdownToolkit.onTabKey', () => indentList(true)),
+    vscode.commands.registerCommand('markdownToolkit.onShiftTabKey', () => indentList(false)),
+    vscode.commands.registerCommand('markdownToolkit.onBackspaceKey', onBackspaceKey),
+    vscode.commands.registerCommand('markdownToolkit.checkTaskList', checkTaskList)
   );
 }

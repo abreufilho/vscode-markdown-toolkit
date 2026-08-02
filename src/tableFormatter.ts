@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext): void {
   const selector: vscode.DocumentSelector = { language: 'markdown' };
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('mdaio.formatTable', formatTables),
+    vscode.commands.registerCommand('markdownToolkit.formatTable', formatTables),
     vscode.languages.registerDocumentFormattingEditProvider(selector, {
       provideDocumentFormattingEdits: (document) => tableEdits(document),
     }),

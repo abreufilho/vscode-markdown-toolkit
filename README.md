@@ -1,8 +1,8 @@
 # Markdown Toolkit
 
-[![CI](https://github.com/abreufilho/vscode-markdown-aio/actions/workflows/ci.yml/badge.svg)](https://github.com/abreufilho/vscode-markdown-aio/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/abreufilho/vscode-markdown-aio?color=blue)](https://github.com/abreufilho/vscode-markdown-aio/releases/latest)
-[![License](https://img.shields.io/github/license/abreufilho/vscode-markdown-aio?color=blue)](LICENSE)
+[![CI](https://github.com/abreufilho/vscode-markdown-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/abreufilho/vscode-markdown-toolkit/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/abreufilho/vscode-markdown-toolkit?color=blue)](https://github.com/abreufilho/vscode-markdown-toolkit/releases/latest)
+[![License](https://img.shields.io/github/license/abreufilho/vscode-markdown-toolkit?color=blue)](LICENSE)
 
 Editing helpers for markdown: formatting shortcuts, list and table handling, a
 table of contents, completions, KaTeX and task lists in the preview, and export
@@ -17,11 +17,11 @@ VS Code 1.80 or later.
 
 ## Installation
 
-Download the `.vsix` from the [latest release](https://github.com/abreufilho/vscode-markdown-aio/releases/latest)
+Download the `.vsix` from the [latest release](https://github.com/abreufilho/vscode-markdown-toolkit/releases/latest)
 and install it:
 
 ```bash
-code --install-extension markdown-aio-<version>.vsix
+code --install-extension markdown-toolkit-<version>.vsix
 ```
 
 ## Features
@@ -54,13 +54,13 @@ at their exported neighbours.
 
 ## Commands
 
-| Command                          | Default keybinding             |
-| -------------------------------- | ------------------------------ |
-| `Markdown: Toggle Bold`          | <kbd>Ctrl</kbd>+<kbd>B</kbd>   |
-| `Markdown: Toggle Italic`        | <kbd>Ctrl</kbd>+<kbd>I</kbd>   |
-| `Markdown: Toggle Strikethrough` | <kbd>Alt</kbd>+<kbd>S</kbd>    |
-| `Markdown: Toggle Math`          | <kbd>Ctrl</kbd>+<kbd>M</kbd>   |
-| `Markdown: Toggle Task Check`    | <kbd>Alt</kbd>+<kbd>C</kbd>    |
+| Command                          | Default keybinding           |
+| -------------------------------- | ---------------------------- |
+| `Markdown: Toggle Bold`          | <kbd>Ctrl</kbd>+<kbd>B</kbd> |
+| `Markdown: Toggle Italic`        | <kbd>Ctrl</kbd>+<kbd>I</kbd> |
+| `Markdown: Toggle Strikethrough` | <kbd>Alt</kbd>+<kbd>S</kbd>  |
+| `Markdown: Toggle Math`          | <kbd>Alt</kbd>+<kbd>M</kbd>  |
+| `Markdown: Toggle Task Check`    | <kbd>Alt</kbd>+<kbd>C</kbd>  |
 
 <kbd>Enter</kbd>, <kbd>Tab</kbd>, <kbd>Shift</kbd>+<kbd>Tab</kbd> and
 <kbd>Backspace</kbd> gain list behaviour inside a markdown editor, and fall back
@@ -70,19 +70,19 @@ The rest of the commands are in the Command Palette under `Markdown:`.
 
 ## Settings
 
-| Setting                       | Default   | Effect                                                    |
-| ----------------------------- | --------- | --------------------------------------------------------- |
-| `mdaio.bold.indicator`        | `**`      | Characters used to toggle bold                            |
-| `mdaio.italic.indicator`      | `*`       | Characters used to toggle italic                          |
-| `mdaio.toc.levels`            | `1..6`    | Heading levels the table of contents keeps                |
-| `mdaio.toc.orderedList`       | `false`   | Number the entries instead of bulleting them              |
-| `mdaio.toc.updateOnSave`      | `true`    | Refresh an existing table of contents when the file saves |
-| `mdaio.toc.slugifyMode`       | `github`  | Anchor flavour: `github`, `gitlab` or `gitea`             |
-| `mdaio.orderedList.marker`    | `ordered` | `one` keeps every item numbered `1.`                      |
-| `mdaio.orderedList.autoRenumber` | `true` | Renumber a list after it is edited                        |
-| `mdaio.syntax.decorations`    | `true`    | Style emphasis and dim its markers in the editor          |
-| `mdaio.print.theme`           | `light`   | Theme of the exported page                                |
-| `mdaio.print.imgToBase64`     | `false`   | Embed images instead of linking to them                   |
+| Setting                                    | Default   | Effect                                                    |
+| ------------------------------------------ | --------- | --------------------------------------------------------- |
+| `markdownToolkit.bold.indicator`           | `**`      | Characters used to toggle bold                            |
+| `markdownToolkit.italic.indicator`         | `*`       | Characters used to toggle italic                          |
+| `markdownToolkit.toc.levels`               | `1..6`    | Heading levels the table of contents keeps                |
+| `markdownToolkit.toc.orderedList`          | `false`   | Number the entries instead of bulleting them              |
+| `markdownToolkit.toc.updateOnSave`         | `true`    | Refresh an existing table of contents when the file saves |
+| `markdownToolkit.toc.slugifyMode`          | `github`  | Anchor flavour: `github`, `gitlab` or `gitea`             |
+| `markdownToolkit.orderedList.marker`       | `ordered` | `one` keeps every item numbered `1.`                      |
+| `markdownToolkit.orderedList.autoRenumber` | `true`    | Renumber a list after it is edited                        |
+| `markdownToolkit.syntax.decorations`       | `true`    | Style emphasis and dim its markers in the editor          |
+| `markdownToolkit.print.theme`              | `light`   | Theme of the exported page                                |
+| `markdownToolkit.print.imgToBase64`        | `false`   | Embed images instead of linking to them                   |
 
 ## Privacy
 

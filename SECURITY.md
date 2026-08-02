@@ -7,7 +7,7 @@ The latest release receives fixes. Older versions do not.
 ## Reporting a Vulnerability
 
 Report privately through
-[GitHub Security Advisories](https://github.com/abreufilho/vscode-markdown-aio/security/advisories/new).
+[GitHub Security Advisories](https://github.com/abreufilho/vscode-markdown-toolkit/security/advisories/new).
 Please do not open a public issue for a vulnerability.
 
 This is a personal project maintained on a best-effort basis. There is no

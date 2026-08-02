@@ -122,7 +122,7 @@ export function activate(context: vscode.ExtensionContext): void {
       if (editor && event.document === editor.document) refresh(editor);
     }),
     vscode.workspace.onDidChangeConfiguration((event) => {
-      if (event.affectsConfiguration('mdaio.syntax.decorations')) {
+      if (event.affectsConfiguration('markdownToolkit.syntax.decorations')) {
         refresh(vscode.window.activeTextEditor);
       }
     })
