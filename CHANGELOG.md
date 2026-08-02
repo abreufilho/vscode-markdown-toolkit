@@ -3,6 +3,17 @@
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-08-02
+
+### Fixed
+
+- Stripping HTML from a heading left a tag behind when removing the inner one
+  exposed an outer one, as in `<<a>script>`. The removal repeats until the text
+  stops changing, so no tag reaches the anchor.
+- Deciding whether a link points into a repository searched the href for the
+  string `github.com`, which also matches `github.com.example.org` and any URL
+  carrying it in a query. The host is compared after parsing.
+
 ## [1.0.0] - 2026-08-02
 
 First public release.

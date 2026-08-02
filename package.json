@@ -2,7 +2,7 @@
   "name": "markdown-toolkit",
   "displayName": "Markdown Toolkit",
   "description": "Markdown editing toolkit for formatting, lists, TOC, tables, math, preview, and offline HTML export.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "abreufilho",
   "private": true,
   "license": "MIT",
