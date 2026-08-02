@@ -1,0 +1,335 @@
+{
+  "name": "markdown-aio",
+  "displayName": "Markdown Toolkit",
+  "description": "Markdown editing toolkit for formatting, lists, TOC, tables, math, preview, and offline HTML export.",
+  "version": "1.0.0",
+  "publisher": "abreufilho",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Antonio Abreu Filho",
+    "url": "https://abreufilho.com.br"
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#172554",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abreufilho/vscode-markdown-aio"
+  },
+  "homepage": "https://github.com/abreufilho/vscode-markdown-aio",
+  "bugs": {
+    "url": "https://github.com/abreufilho/vscode-markdown-aio/issues"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Snippets"
+  ],
+  "keywords": [
+    "markdown",
+    "toc",
+    "tables",
+    "katex",
+    "html"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mdaio.toggleBold",
+        "title": "Markdown: Toggle Bold"
+      },
+      {
+        "command": "mdaio.toggleItalic",
+        "title": "Markdown: Toggle Italic"
+      },
+      {
+        "command": "mdaio.toggleStrikethrough",
+        "title": "Markdown: Toggle Strikethrough"
+      },
+      {
+        "command": "mdaio.toggleCodeSpan",
+        "title": "Markdown: Toggle Code Span"
+      },
+      {
+        "command": "mdaio.toggleCodeBlock",
+        "title": "Markdown: Toggle Code Block"
+      },
+      {
+        "command": "mdaio.toggleMath",
+        "title": "Markdown: Toggle Math"
+      },
+      {
+        "command": "mdaio.headingUp",
+        "title": "Markdown: Increase Heading Level"
+      },
+      {
+        "command": "mdaio.headingDown",
+        "title": "Markdown: Decrease Heading Level"
+      },
+      {
+        "command": "mdaio.toggleList",
+        "title": "Markdown: Toggle List"
+      },
+      {
+        "command": "mdaio.paste",
+        "title": "Markdown: Paste as Link"
+      },
+      {
+        "command": "mdaio.onEnterKey",
+        "title": "Markdown: Enter Key"
+      },
+      {
+        "command": "mdaio.onTabKey",
+        "title": "Markdown: Tab Key"
+      },
+      {
+        "command": "mdaio.onShiftTabKey",
+        "title": "Markdown: Shift+Tab Key"
+      },
+      {
+        "command": "mdaio.onBackspaceKey",
+        "title": "Markdown: Backspace Key"
+      },
+      {
+        "command": "mdaio.checkTaskList",
+        "title": "Markdown: Toggle Task Check"
+      },
+      {
+        "command": "mdaio.tocCreate",
+        "title": "Markdown: Create Table of Contents"
+      },
+      {
+        "command": "mdaio.tocUpdate",
+        "title": "Markdown: Update Table of Contents"
+      },
+      {
+        "command": "mdaio.secNumbersAdd",
+        "title": "Markdown: Add Section Numbers"
+      },
+      {
+        "command": "mdaio.secNumbersRemove",
+        "title": "Markdown: Remove Section Numbers"
+      },
+      {
+        "command": "mdaio.formatTable",
+        "title": "Markdown: Format Table"
+      },
+      {
+        "command": "mdaio.exportHtml",
+        "title": "Markdown: Export to HTML"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "mdaio.toggleBold",
+        "key": "ctrl+b",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "mdaio.toggleItalic",
+        "key": "ctrl+i",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "mdaio.toggleStrikethrough",
+        "key": "alt+s",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "mdaio.toggleMath",
+        "key": "ctrl+m",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "mdaio.onEnterKey",
+        "key": "enter",
+        "when": "editorTextFocus && editorLangId == markdown && !suggestWidgetVisible && !editorHasMultipleSelections && vim.mode != 'Normal' && vim.mode != 'Visual' && vim.mode != 'VisualBlock' && vim.mode != 'VisualLine'"
+      },
+      {
+        "command": "mdaio.onTabKey",
+        "key": "tab",
+        "when": "editorTextFocus && editorLangId == markdown && !suggestWidgetVisible && !editorTabMovesFocus && !inSnippetMode && !hasSnippetCompletions"
+      },
+      {
+        "command": "mdaio.onShiftTabKey",
+        "key": "shift+tab",
+        "when": "editorTextFocus && editorLangId == markdown && !suggestWidgetVisible && !editorTabMovesFocus"
+      },
+      {
+        "command": "mdaio.onBackspaceKey",
+        "key": "backspace",
+        "when": "editorTextFocus && editorLangId == markdown && !suggestWidgetVisible"
+      },
+      {
+        "command": "mdaio.checkTaskList",
+        "key": "alt+c",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
+    ],
+    "configuration": {
+      "title": "Markdown AIO",
+      "properties": {
+        "mdaio.bold.indicator": {
+          "type": "string",
+          "default": "**",
+          "enum": [
+            "**",
+            "__"
+          ],
+          "description": "Characters written around a selection to make it bold.",
+          "enumDescriptions": [
+            "Asterisks.",
+            "Underscores."
+          ]
+        },
+        "mdaio.italic.indicator": {
+          "type": "string",
+          "default": "*",
+          "enum": [
+            "*",
+            "_"
+          ],
+          "description": "Characters written around a selection to make it italic.",
+          "enumDescriptions": [
+            "Asterisk.",
+            "Underscore."
+          ]
+        },
+        "mdaio.orderedList.marker": {
+          "type": "string",
+          "default": "ordered",
+          "enum": [
+            "ordered",
+            "one"
+          ],
+          "description": "How a continued ordered list is numbered.",
+          "enumDescriptions": [
+            "Count up from the previous item.",
+            "Write every item as 1."
+          ]
+        },
+        "mdaio.orderedList.autoRenumber": {
+          "type": "boolean",
+          "default": true,
+          "description": "Renumber an ordered list after it is edited."
+        },
+        "mdaio.toc.levels": {
+          "type": "string",
+          "default": "1..6",
+          "description": "Heading levels the table of contents keeps, as a range such as 2..4."
+        },
+        "mdaio.toc.orderedList": {
+          "type": "boolean",
+          "default": false,
+          "description": "Number the entries of the table of contents instead of bulleting them."
+        },
+        "mdaio.toc.slugifyMode": {
+          "type": "string",
+          "default": "github",
+          "enum": [
+            "github",
+            "gitlab",
+            "gitea"
+          ],
+          "description": "Host whose anchor format the links should follow.",
+          "enumDescriptions": [
+            "GitHub anchors.",
+            "GitLab anchors, which drop trailing hyphens.",
+            "Gitea anchors."
+          ]
+        },
+        "mdaio.toc.updateOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Refresh an existing table of contents when the document is saved."
+        },
+        "mdaio.print.theme": {
+          "type": "string",
+          "default": "light",
+          "enum": [
+            "light",
+            "dark"
+          ],
+          "description": "Theme of the exported HTML page.",
+          "enumDescriptions": [
+            "Dark text on a light background.",
+            "Light text on a dark background."
+          ]
+        },
+        "mdaio.print.imgToBase64": {
+          "type": "boolean",
+          "default": false,
+          "description": "Embed images in the exported page instead of linking to them."
+        },
+        "mdaio.syntax.decorations": {
+          "type": "boolean",
+          "default": true,
+          "description": "Style emphasis in the editor and dim its markers."
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "mdaio.onEnterKey",
+          "when": "false"
+        },
+        {
+          "command": "mdaio.onTabKey",
+          "when": "false"
+        },
+        {
+          "command": "mdaio.onShiftTabKey",
+          "when": "false"
+        },
+        {
+          "command": "mdaio.onBackspaceKey",
+          "when": "false"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\" \"scripts/*.mjs\" \"*.json\"",
+    "test": "npm run typecheck && esbuild test/*.test.ts --bundle --platform=node --format=cjs --outdir=out/test --log-level=warning && node --test out/test/*.test.js",
+    "vscode:prepublish": "npm run build",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "@neilsustc/markdown-it-katex": "^1.0.0",
+    "highlight.js": "^11.10.0",
+    "image-size": "^1.1.1",
+    "katex": "^0.16.11",
+    "markdown-it": "^14.1.0",
+    "markdown-it-task-lists": "^2.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^26.1.2",
+    "@types/vscode": "1.80",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.65.0"
+  },
+  "overrides": {
+    "encoding-sniffer": "1.0.2"
+  }
+}
