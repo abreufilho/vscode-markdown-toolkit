@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Shud Markdown Toolkit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Markdown Toolkit">
   <rect x="8" y="8" width="240" height="240" rx="48" fill="#0f172a"/>
   <rect x="36" y="54" width="184" height="148" rx="24" fill="#172554" stroke="#38bdf8" stroke-width="8"/>
   <path d="M62 164V92h18l26 32 26-32h18v72h-20v-40l-24 29-24-29v40z" fill="#e2e8f0"/>
